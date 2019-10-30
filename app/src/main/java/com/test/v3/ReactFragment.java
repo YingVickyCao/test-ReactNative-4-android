@@ -55,20 +55,26 @@ public class ReactFragment extends Fragment implements DefaultHardwareBackBtnHan
         }
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    private void checkAlertWindow(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(getActivity())) {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getActivity().getPackageName()));
                 startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
             }
         }
+    }
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        checkAlertWindow();
 
         mReactRootView = new ReactRootView(getActivity());
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getActivity().getApplication())
                 .setCurrentActivity(getActivity())
+                // main/asserts/v1/index.android.bundle
+//                .setBundleAssetName("v1/index.android.bundle")
+                // main/asserts/index.android.bundle
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
