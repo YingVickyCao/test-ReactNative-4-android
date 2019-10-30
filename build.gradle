@@ -23,6 +23,9 @@ buildscript {
 allprojects {
     repositories {
         mavenLocal()
+        maven {
+            url "/Users/hades/local_maven"
+        }
         google()
         jcenter()
         maven {
