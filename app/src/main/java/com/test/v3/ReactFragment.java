@@ -22,7 +22,6 @@ import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 import com.test.BuildConfig;
-import com.test._native_modules.ToastPackage;
 
 public class ReactFragment extends Fragment implements DefaultHardwareBackBtnHandler, IOnKeyUp,IBackPressed {
     public static final String TAG = ReactFragment.class.getSimpleName();
@@ -78,7 +77,7 @@ public class ReactFragment extends Fragment implements DefaultHardwareBackBtnHan
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
-                .addPackage(new ToastPackage())
+//                .addPackage(new ToastPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
