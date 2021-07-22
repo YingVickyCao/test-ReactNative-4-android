@@ -78,7 +78,7 @@ public class ReactFragment extends Fragment implements DefaultHardwareBackBtnHan
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
 //                .addPackage(new ToastPackage())
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
+                .setUseDeveloperSupport(true)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
         // 注意这里的MyReactNativeApp必须对应“index.js”中的 AppRegistry.registerComponent()”的第一个参数
